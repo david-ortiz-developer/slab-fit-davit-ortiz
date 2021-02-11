@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct slab_fit_davit_ortizApp: App {
+struct SlabfitdavitortizApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

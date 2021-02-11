@@ -9,21 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/, content: {
             GridView()
         })
-        
     }
-    struct valuesChart: View {
+    struct ValuesChart: View {
         var body: some View {
             HStack {
                 ForEach(1..<6) { columnNumber in
                     VStack {
                         ForEach(1..<Int(3)) { rowNumber in
                             HStack {
-                                Rectangle().fill(Color.random())
-                                    .frame(width: 10, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                Rectangle()
+                                    .fill(Color.random())
+                                    .frame(
+                                        width: 10,
+                                        height: 10,
+                                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 Text("+\(columnNumber * rowNumber)")
                                     .font(.footnote)
                             }
@@ -33,22 +35,20 @@ struct ContentView: View {
             }.padding(.all, 12.0).border(Color.black, width: 1)
         }
     }
-    struct GridView : View {
+    struct GridView: View {
         var gridColumns = CGFloat(7)
         var gridRows = CGFloat(14)
         var heatMapSize: CGSize {
-            get {
-                CGSize(width: ((UIScreen.screenWidth - 100) / gridColumns), height: 40)
-            }
+            CGSize(width: ((UIScreen.screenWidth - 100) / gridColumns), height: 40)
         }
         var body: some View {
             VStack {
                 HStack(spacing: 0.0) {
                     Spacer().frame(
-                        width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
+                        width: 100,
+                        height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,
+                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     ForEach(1..<Int(gridColumns)) { _ in
-                        
                         Group {
                             Text("Resumen y otros")
                                 .font(.footnote)
@@ -57,9 +57,7 @@ struct ContentView: View {
                                 .fixedSize()
                                 .frame(
                                     width: heatMapSize.width,
-                                    height:120 )
-                            
-                            
+                                    height: 120)
                         }
                     }
                 }
@@ -72,10 +70,9 @@ struct ContentView: View {
                         }
                     }
                     VStack(spacing: 0.0) {
-                        
                         ForEach(1..<Int(gridRows)) { _ in
                             HStack(spacing: 0.0) {
-                                ForEach(1..<Int(gridColumns)) {number in
+                                ForEach(1..<Int(gridColumns)) {_ in
                                     Rectangle().fill(Color.random())
                                         .padding(.horizontal, 0.0)
                                         .frame(
@@ -87,7 +84,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                valuesChart()
+                ValuesChart()
             }
         }
     }
@@ -97,7 +94,7 @@ struct ContentView: View {
         }
     }
 }
-extension UIScreen{
+extension UIScreen {
     static let screenWidth = UIScreen.main.bounds.size.width
     static let screenHeight = UIScreen.main.bounds.size.height
     static let screenSize = UIScreen.main.bounds.size
@@ -110,9 +107,9 @@ extension CGFloat {
 extension Color {
     static func random() -> Color {
         return Color(UIColor(
-            red:   .random(),
+            red: .random(),
             green: .random(),
-            blue:  .random(),
+            blue: .random(),
             alpha: 1.0
         )
         )

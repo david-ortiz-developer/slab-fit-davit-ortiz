@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62CE0E5125D4C938008061E5 /* slab_fit_davit_ortizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5025D4C938008061E5 /* slab_fit_davit_ortizApp.swift */; };
+		62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */; };
 		62CE0E5325D4C938008061E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5225D4C938008061E5 /* ContentView.swift */; };
 		62CE0E5525D4C93C008061E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0E5425D4C93C008061E5 /* Assets.xcassets */; };
 		62CE0E5825D4C93C008061E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0E5725D4C93C008061E5 /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		62CE0E4D25D4C938008061E5 /* slab-fit-davit-ortiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "slab-fit-davit-ortiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62CE0E5025D4C938008061E5 /* slab_fit_davit_ortizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = slab_fit_davit_ortizApp.swift; sourceTree = "<group>"; };
+		62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlabfitdavitortizApp.swift; sourceTree = "<group>"; };
 		62CE0E5225D4C938008061E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		62CE0E5425D4C93C008061E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62CE0E5725D4C93C008061E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		62CE0E4F25D4C938008061E5 /* slab-fit-davit-ortiz */ = {
 			isa = PBXGroup;
 			children = (
-				62CE0E5025D4C938008061E5 /* slab_fit_davit_ortizApp.swift */,
+				62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */,
 				62CE0E5225D4C938008061E5 /* ContentView.swift */,
 				62CE0E5425D4C93C008061E5 /* Assets.xcassets */,
 				62CE0E5925D4C93C008061E5 /* Info.plist */,
@@ -79,6 +79,7 @@
 				62CE0E4925D4C938008061E5 /* Sources */,
 				62CE0E4A25D4C938008061E5 /* Frameworks */,
 				62CE0E4B25D4C938008061E5 /* Resources */,
+				62CE0E6025D5771B008061E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,13 +134,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62CE0E6025D5771B008061E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		62CE0E4925D4C938008061E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				62CE0E5325D4C938008061E5 /* ContentView.swift in Sources */,
-				62CE0E5125D4C938008061E5 /* slab_fit_davit_ortizApp.swift in Sources */,
+				62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

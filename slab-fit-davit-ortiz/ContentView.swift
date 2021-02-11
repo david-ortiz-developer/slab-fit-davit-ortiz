@@ -23,11 +23,15 @@ class ProjectsViewModel: ObservableObject {
                 let data = queryDocumentSnapshot.data()
                 let name = data["name"] as? String ?? ""
                 var props = Array<Dictionary<String, Any>>()
+                var projectId = ""
+                if let uid = data["id"] as? String {
+                    projectId = uid
+                }
                 if let properties = data["properties"] as? Array<Dictionary<String, Any>> {
                     props = properties
                     
                 }
-                return Project(id: "eeee", name: name, projectProperties: props)
+                return Project(id: projectId, name: name, projectProperties: props)
             }
         }
     }

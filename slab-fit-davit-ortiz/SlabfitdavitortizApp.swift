@@ -21,79 +21,75 @@ struct SlabfitdavitortizApp: App {
 class HeatMapViewModel: ObservableObject {
     @Published var projects = [Project]()
 }
-struct ProjectProperty {
-    var name: String
-    var progress: Float
-}
+
 struct Project: Identifiable {
     var id: String
     var name: String
-    var projectProperties: [ProjectProperty]
+    var projectProperties: Array<Dictionary<String, Any>>
    
 }
 let testData = [
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    ),
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ]),
     Project(id: "7556", name: "Facturación", projectProperties:
-                [ProjectProperty(name: "Facturacion", progress: 18.5),
-                 ProjectProperty(name: "Socialización", progress: 18.5),
-                 ProjectProperty(name: "Impácto en la comunidad", progress: 18.5),
-                 ProjectProperty(name: "Gastos", progress: 18.5),
-                 ProjectProperty(name: "Ejecución", progress: 18.5),
-                 ProjectProperty(name: "Satisfacción del cliente", progress: 18.5),
-                 ProjectProperty(name: "Flexibilidad y escalabilidad", progress: 18.5)]
-    )
+                [["Facturacion": 18.5],
+                 ["Socialización": 18.5],
+                 ["Impácto en la comunidad": 18.5],
+                 ["Gastos": 18.5],
+                 ["Ejecución": 18.5],
+                 ["Satisfacción del cliente": 18.5],
+                 ["Flexibilidad y escalabilidad": 18.5]
+    ])
 ]
-

@@ -13,38 +13,34 @@ class ProjectsViewModel: ObservableObject {
     @Published var projects = [Project]()
     func fetchData() {
         FirebaseApp.configure()
-         var db = Firestore.firestore()
-        
-        db.collection("Projects").addSnapshotListener {[self]  (querySnapshot, error) in
+        let fireDb = Firestore.firestore()
+        fireDb.collection("Projects").addSnapshotListener {[self]  (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
-                    print("No documents")
-                    return
-                  }
+                print("No documents")
+                return
+            }
             self.projects = documents.map{queryDocumentSnapshot -> Project in
                 let data = queryDocumentSnapshot.data()
                 let name = data["name"] as? String ?? ""
-                return Project(id: "fff", name: name, projectProperties: [ProjectProperty(name: "hello", progress: 12)])
+                var props = Array<Dictionary<String, Any>>()
+                if let properties = data["properties"] as? Array<Dictionary<String, Any>> {
+                    props = properties
+                    
+                }
+                return Project(id: "eeee", name: name, projectProperties: props)
             }
         }
     }
 }
 struct ContentView: View {
-    
-    
-    
     var body: some View {
-        
         NavigationView {
-        ScrollView(.vertical, showsIndicators: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/, content: {
-            GridView()
-        })
+            ScrollView(.vertical, showsIndicators: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/, content: {
+                GridView()
+            })
         }.navigationBarTitle("Heatmap")
-        
-        
-        
     }
     struct ValuesChart: View {
-        
         var body: some View {
             HStack {
                 ForEach(1..<6) { columnNumber in
@@ -70,7 +66,6 @@ struct ContentView: View {
         @ObservedObject var projectsAllData = ProjectsViewModel()
         var gridColumns = CGFloat(7)
         var gridRows = CGFloat(14)
-        
         var heatMapSize: CGSize {
             CGSize(width: ((UIScreen.screenWidth - 100) / gridColumns), height: 40)
         }
@@ -95,36 +90,31 @@ struct ContentView: View {
                         }
                     }
                 }
-                
                 if projectsAllData.projects.count > 0 {
-                ForEach(0..<projectsAllData.projects.count) {index in
-                HStack {
-                    VStack(spacing: 0.0) {
-                            HStack(spacing: 0.0) {
-                                Text(projectsAllData.projects[index].name).font(.footnote).frame(
-                                    width: 100,
-                                    height: heatMapSize.height)
-                                ForEach(1..<Int(projectsData[index].projectProperties.count)) {_ in
-                                    Rectangle().fill(Color.random())
-                                        .padding(.horizontal, 0.0)
-                                        .frame(
-                                            width: heatMapSize.width,
-                                            height: heatMapSize.height)
-                                        .border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                    ForEach(0..<projectsAllData.projects.count) {index in
+                        HStack {
+                            VStack(spacing: 0.0) {
+                                HStack(spacing: 0.0) {
+                                    Text(projectsAllData.projects[index].name).font(.footnote).frame(
+                                        width: 100,
+                                        height: heatMapSize.height)
+                                    ForEach(0..<projectsAllData.projects[index].projectProperties.count) {_ in
+                                        Rectangle().fill(Color.random())
+                                            .padding(.horizontal, 0.0)
+                                            .frame(
+                                                width: heatMapSize.width,
+                                                height: heatMapSize.height)
+                                            .border(Color.white, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                }
-                
                 ValuesChart()
-               
-            }.onAppear(){
+            }.onAppear {
                 projectsAllData.fetchData()
-                
             }
-                
         }
     }
     struct ContentView_Previews: PreviewProvider {

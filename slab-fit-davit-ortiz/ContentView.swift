@@ -6,14 +6,45 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
+class ProjectsViewModel: ObservableObject {
+    @Published var projects = [Project]()
+    func fetchData() {
+        FirebaseApp.configure()
+         var db = Firestore.firestore()
+        
+        db.collection("Projects").addSnapshotListener {[self]  (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                  }
+            self.projects = documents.map{queryDocumentSnapshot -> Project in
+                let data = queryDocumentSnapshot.data()
+                let name = data["name"] as? String ?? ""
+                return Project(id: "fff", name: name, projectProperties: [ProjectProperty(name: "hello", progress: 12)])
+            }
+        }
+    }
+}
 struct ContentView: View {
+    
+    
+    
     var body: some View {
+        
+        NavigationView {
         ScrollView(.vertical, showsIndicators: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/, content: {
             GridView()
         })
+        }.navigationBarTitle("Heatmap")
+        
+        
+        
     }
     struct ValuesChart: View {
+        
         var body: some View {
             HStack {
                 ForEach(1..<6) { columnNumber in
@@ -36,11 +67,14 @@ struct ContentView: View {
         }
     }
     struct GridView: View {
+        @ObservedObject var projectsAllData = ProjectsViewModel()
         var gridColumns = CGFloat(7)
         var gridRows = CGFloat(14)
+        
         var heatMapSize: CGSize {
             CGSize(width: ((UIScreen.screenWidth - 100) / gridColumns), height: 40)
         }
+        var projectsData = testData
         var body: some View {
             VStack {
                 HStack(spacing: 0.0) {
@@ -61,18 +95,16 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                if projectsAllData.projects.count > 0 {
+                ForEach(0..<projectsAllData.projects.count) {index in
                 HStack {
-                    VStack {
-                        ForEach(1..<Int(gridRows)) { _ in
-                            Text("Adquisición de planta en Chile").font(.footnote).frame(
-                                width: 100,
-                                height: heatMapSize.height)
-                        }
-                    }
                     VStack(spacing: 0.0) {
-                        ForEach(1..<Int(gridRows)) { _ in
                             HStack(spacing: 0.0) {
-                                ForEach(1..<Int(gridColumns)) {_ in
+                                Text(projectsAllData.projects[index].name).font(.footnote).frame(
+                                    width: 100,
+                                    height: heatMapSize.height)
+                                ForEach(1..<Int(projectsData[index].projectProperties.count)) {_ in
                                     Rectangle().fill(Color.random())
                                         .padding(.horizontal, 0.0)
                                         .frame(
@@ -84,8 +116,15 @@ struct ContentView: View {
                         }
                     }
                 }
+                }
+                
                 ValuesChart()
+               
+            }.onAppear(){
+                projectsAllData.fetchData()
+                
             }
+                
         }
     }
     struct ContentView_Previews: PreviewProvider {

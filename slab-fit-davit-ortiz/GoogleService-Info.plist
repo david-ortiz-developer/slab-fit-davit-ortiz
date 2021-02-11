@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>106765136105-uhiake0olnmncs7eh819ig7tcr7on3dh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.106765136105-uhiake0olnmncs7eh819ig7tcr7on3dh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1SErVqqAxjyO4S8t0qIMIj-usnn4Xa5g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>106765136105</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.davit-ortiz.slab-fit-davit-ortiz</string>
+	<key>PROJECT_ID</key>
+	<string>slab-fit</string>
+	<key>STORAGE_BUCKET</key>
+	<string>slab-fit.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:106765136105:ios:f262857dd90bf149200078</string>
+</dict>
+</plist>

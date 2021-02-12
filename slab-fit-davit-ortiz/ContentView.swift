@@ -9,8 +9,6 @@ import SwiftUI
 import UIKit
 import Firebase
 import FirebaseFirestore
-
-
 struct ContentView: View {
     var body: some View {
         NavigationView {

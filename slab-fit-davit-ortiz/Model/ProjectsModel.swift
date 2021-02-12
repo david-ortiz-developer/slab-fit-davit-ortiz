@@ -16,7 +16,7 @@ typealias Projects = [Project]
 class ProjectsModel: ObservableObject {
     @Published var projects = Projects()
     func fetchData() {
-        let interactor = HeatMapIntyeractor()
+        let interactor = HeatMapInteractor()
         interactor.retrieveProjects(mocking: false) {projectsReturnned in
             if let projectsArray = projectsReturnned {
                 self.projects = projectsArray

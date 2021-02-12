@@ -12,6 +12,10 @@
 		62A3B1B125D6C50E0056989F /* HeatMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B025D6C50E0056989F /* HeatMapInteractor.swift */; };
 		62A3B1B625D6C8880056989F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B525D6C8880056989F /* Extensions.swift */; };
 		62A3B1BA25D6C8FF0056989F /* HeatMapGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */; };
+		62A3B1BD25D6EF700056989F /* ColumnLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1BC25D6EF700056989F /* ColumnLabels.swift */; };
+		62A3B1C125D6F8E30056989F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1C025D6F8E30056989F /* Constants.swift */; };
+		62A3B1C625D6FC660056989F /* HeatMapProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1C525D6FC660056989F /* HeatMapProtocol.swift */; };
+		62A3B1CA25D6FCCB0056989F /* InteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1C925D6FCCB0056989F /* InteractorProtocol.swift */; };
 		62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */; };
 		62CE0E5325D4C938008061E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5225D4C938008061E5 /* ContentView.swift */; };
 		62CE0E5525D4C93C008061E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0E5425D4C93C008061E5 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 		62A3B1B025D6C50E0056989F /* HeatMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInteractor.swift; sourceTree = "<group>"; };
 		62A3B1B525D6C8880056989F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapGridView.swift; sourceTree = "<group>"; };
+		62A3B1BC25D6EF700056989F /* ColumnLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnLabels.swift; sourceTree = "<group>"; };
+		62A3B1C025D6F8E30056989F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		62A3B1C525D6FC660056989F /* HeatMapProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapProtocol.swift; sourceTree = "<group>"; };
+		62A3B1C925D6FCCB0056989F /* InteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorProtocol.swift; sourceTree = "<group>"; };
 		62CE0E4D25D4C938008061E5 /* slab-fit-davit-ortiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "slab-fit-davit-ortiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlabfitdavitortizApp.swift; sourceTree = "<group>"; };
 		62CE0E5225D4C938008061E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 			children = (
 				62A3B1AA25D6C3AF0056989F /* TableOfValues.swift */,
 				62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */,
+				62A3B1BC25D6EF700056989F /* ColumnLabels.swift */,
 			);
 			path = HeatMap;
 			sourceTree = "<group>";
@@ -98,6 +107,23 @@
 				62A3B1B525D6C8880056989F /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		62A3B1BF25D6F8CD0056989F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1C025D6F8E30056989F /* Constants.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		62A3B1C425D6FC4C0056989F /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1C525D6FC660056989F /* HeatMapProtocol.swift */,
+				62A3B1C925D6FCCB0056989F /* InteractorProtocol.swift */,
+			);
+			path = protocols;
 			sourceTree = "<group>";
 		};
 		62CE0E4425D4C938008061E5 = {
@@ -121,6 +147,8 @@
 		62CE0E4F25D4C938008061E5 /* slab-fit-davit-ortiz */ = {
 			isa = PBXGroup;
 			children = (
+				62A3B1C425D6FC4C0056989F /* protocols */,
+				62A3B1BF25D6F8CD0056989F /* Source */,
 				62A3B1B425D6C8640056989F /* Extensions */,
 				62A3B1AF25D6C4A80056989F /* Interactor */,
 				62A3B1A925D6C3710056989F /* HeatMap */,
@@ -279,9 +307,13 @@
 				62A3B1BA25D6C8FF0056989F /* HeatMapGridView.swift in Sources */,
 				62A3B1B625D6C8880056989F /* Extensions.swift in Sources */,
 				62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */,
+				62A3B1CA25D6FCCB0056989F /* InteractorProtocol.swift in Sources */,
+				62A3B1C625D6FC660056989F /* HeatMapProtocol.swift in Sources */,
 				62A3B1B125D6C50E0056989F /* HeatMapInteractor.swift in Sources */,
 				62A3B1A625D6C2F30056989F /* ProjectsModel.swift in Sources */,
+				62A3B1BD25D6EF700056989F /* ColumnLabels.swift in Sources */,
 				62A3B1AB25D6C3AF0056989F /* TableOfValues.swift in Sources */,
+				62A3B1C125D6F8E30056989F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

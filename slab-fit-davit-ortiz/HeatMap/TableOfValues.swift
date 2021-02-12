@@ -12,14 +12,14 @@ struct TableOfValues: View {
         HStack {
             ForEach(1..<6) { columnNumber in
                 VStack {
-                    ForEach(1..<Int(3)) { rowNumber in
+                    ForEach(1..<Constants.valuesColumns) { rowNumber in
                         HStack {
                             Rectangle()
                                 .fill(Color.random())
                                 .frame(
                                     width: 10,
                                     height: 10,
-                                    alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    alignment: .center)
                             Text("+\(columnNumber * rowNumber)")
                                 .font(.footnote)
                         }

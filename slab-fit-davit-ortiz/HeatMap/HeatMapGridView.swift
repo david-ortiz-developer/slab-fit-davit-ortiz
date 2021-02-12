@@ -10,15 +10,11 @@ struct HeatMapGridView: View, HeatMapProtocol {
     @ObservedObject var projectsAllData = ProjectsModel()
     var gridColumns = CGFloat(7)
     var heatMapBoxSize: CGSize {
-        CGSize(width: ((UIScreen.screenWidth - Constants.leadingMargin) / gridColumns), height: 40)
+        CGSize(width: ((UIScreen.screenWidth - Constants.leadingMargin) / gridColumns), height: 60)
     }
    
     var body: some View {
-        HStack {
-            Text("hello world")
-        }
-        
-        VStack {
+        VStack(spacing: 0.0) {
             ColumnLabels(columnNames: Constants.columnNames, width: heatMapBoxSize.width)
             if projectsAllData.projects.count > 0 {
                 ForEach(0..<projectsAllData.projects.count) {index in
@@ -31,7 +27,8 @@ struct HeatMapGridView: View, HeatMapProtocol {
                                 let columnValuesArray: [Float?] = getRowArray(columnNames: Constants.columnNames, properties: projectsAllData.projects[index].projectProperties)
                                 ForEach(0..<columnValuesArray.count) {indexColumn in
                                     if let valueObtained = columnValuesArray[indexColumn] {
-                                        Rectangle().fill(Color(String(10)))
+                                        let colorName = getHeatColorFor(indexColumn: indexColumn, value: valueObtained)
+                                        Rectangle().fill(Color(String(colorName)))
                                             .padding(.horizontal, 0.0)
                                             .frame(
                                                 width: heatMapBoxSize.width,
@@ -47,11 +44,11 @@ struct HeatMapGridView: View, HeatMapProtocol {
                     }
                 }
             }
+            Spacer()
             TableOfValues()
         }.onAppear {
             projectsAllData.fetchData()
         }
-        
     }
     /// This method returns an array with the values for each column.
     /// Elements in the array can be nil if the property doesn't applies to the project
@@ -78,8 +75,12 @@ struct HeatMapGridView: View, HeatMapProtocol {
         }
         return returnArray
     }
-    func getHeatColorFor(indexColumn: Int, value: Float) {
-        let goalsTupple = Constants.goals
-        
+    func getHeatColorFor(indexColumn: Int, value: Float) -> Int {
+        let goalsTupple = Constants.goals[indexColumn]
+        let colorIntName: Float = mapvalue(minRange: Float(goalsTupple.min), maxRange: Float(goalsTupple.max), minDomain: 0.0, maxDomain: 10.0, value: value)
+        return Int(colorIntName)
+    }
+    func mapvalue(minRange:Float, maxRange:Float, minDomain:Float, maxDomain:Float, value:Float) -> Float {
+        return minDomain + (maxDomain - minDomain) * (value - minRange) / (maxRange - minRange)
     }
 }

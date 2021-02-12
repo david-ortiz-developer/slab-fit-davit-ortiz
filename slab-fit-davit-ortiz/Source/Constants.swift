@@ -15,7 +15,7 @@ import SwiftUI
                  (min: 0, max: 100),
                  
     ]
-    static let gridColumnLabelsHeight: CGFloat = 150
+    static let gridColumnLabelsHeight: CGFloat = 170
     static let columnLabelsWidh: CGFloat = 100
     static let columnLabelsHeight: CGFloat = 100
     static let leadingMargin: CGFloat = 100

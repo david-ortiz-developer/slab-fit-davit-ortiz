@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import Firebase
 import FirebaseFirestore
 
@@ -29,7 +30,7 @@ class ProjectsViewModel: ObservableObject {
                 }
                 if let properties = data["properties"] as? Array<Dictionary<String, Any>> {
                     props = properties
-                    
+                    print("properties: \(properties)")
                 }
                 return Project(id: projectId, name: name, projectProperties: props)
             }
@@ -74,6 +75,7 @@ struct ContentView: View {
             CGSize(width: ((UIScreen.screenWidth - 100) / gridColumns), height: 40)
         }
         var projectsData = testData
+        let columnNames = ["Ejecución de Presupuesto", "Número de Operarios", "MW Generados", "Ingresos por MW", "Ejecución", "Facturación"]
         var body: some View {
             VStack {
                 HStack(spacing: 0.0) {
@@ -81,16 +83,19 @@ struct ContentView: View {
                         width: 100,
                         height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/,
                         alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    ForEach(1..<Int(gridColumns)) { _ in
+                    ForEach(0..<columnNames.count) { index in
                         Group {
-                            Text("Resumen y otros")
+                            Text(columnNames[index])
                                 .font(.footnote)
+                                .multilineTextAlignment(.leading)
                                 .lineLimit(0)
-                                .rotationEffect(.degrees(-90))
+                                .padding(.all, 12.0)
                                 .fixedSize()
                                 .frame(
                                     width: heatMapSize.width,
-                                    height: 120)
+                                    height: 150)
+                                .rotationEffect(.degrees(-90))
+                                
                         }
                     }
                 }
@@ -102,7 +107,11 @@ struct ContentView: View {
                                     Text(projectsAllData.projects[index].name).font(.footnote).frame(
                                         width: 100,
                                         height: heatMapSize.height)
+                                    let array = getRowArray(columnNames: columnNames, properties: projectsAllData.projects[index].projectProperties)
                                     ForEach(0..<projectsAllData.projects[index].projectProperties.count) {_ in
+
+                                        
+                                        
                                         Rectangle().fill(Color.random())
                                             .padding(.horizontal, 0.0)
                                             .frame(
@@ -119,6 +128,27 @@ struct ContentView: View {
             }.onAppear {
                 projectsAllData.fetchData()
             }
+        }
+        func getRowArray(columnNames: [String], properties: [[String: Any]]) -> [Float?] {
+            var returnArray = [Float?]()
+            for index in 0..<columnNames.count {
+                var found = false
+                for prop in properties {
+                    if prop["name"] as? String == columnNames[index],
+                       let value = prop["progress"] as? NSNumber
+                       {
+                        returnArray.append(value as? Float)
+                        found = true
+                        break
+                    }
+                    
+                }
+                if found == false {
+                    returnArray.append(nil)
+                }
+            }
+            return returnArray
+            
         }
     }
     struct ContentView_Previews: PreviewProvider {

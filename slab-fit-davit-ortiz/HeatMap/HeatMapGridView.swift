@@ -78,4 +78,8 @@ struct HeatMapGridView: View, HeatMapProtocol {
         }
         return returnArray
     }
+    func getHeatColorFor(indexColumn: Int, value: Float) {
+        let goalsTupple = Constants.goals
+        
+    }
 }

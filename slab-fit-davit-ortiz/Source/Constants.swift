@@ -7,6 +7,14 @@
 
 import SwiftUI
  struct Constants {
+    static let goals = [(min: 0, max: 100),
+                 (min: 1, max:300),
+                 (min: 200, max: 1800),
+                 (min: 0.12, max: 2.0),
+                 (min: 0, max: 100),
+                 (min: 0, max: 100),
+                 
+    ]
     static let gridColumnLabelsHeight: CGFloat = 150
     static let columnLabelsWidh: CGFloat = 100
     static let columnLabelsHeight: CGFloat = 100
@@ -18,10 +26,10 @@ import SwiftUI
                                "Ejecución",
                                "Facturación"]
     static let valuesColumns = 3
-    static var snapShotKeyName = "name"
-    static var snapShotKeyNumber = "progress"
-    static var snapShotKeyProperties = "properties"
-    static var dbCollectionName = "Projects"
+    static let snapShotKeyName = "name"
+    static let snapShotKeyNumber = "progress"
+    static let snapShotKeyProperties = "properties"
+    static let dbCollectionName = "Projects"
     static var mockData: Projects { [
         Project(id: "7556", name: "Facturación", projectProperties:
                     [["Facturacion": 18.5],

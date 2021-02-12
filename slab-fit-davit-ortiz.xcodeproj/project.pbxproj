@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62A3B1A625D6C2F30056989F /* ProjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1A525D6C2F30056989F /* ProjectsModel.swift */; };
+		62A3B1AB25D6C3AF0056989F /* TableOfValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1AA25D6C3AF0056989F /* TableOfValues.swift */; };
+		62A3B1B125D6C50E0056989F /* HeatMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B025D6C50E0056989F /* HeatMapInteractor.swift */; };
+		62A3B1B625D6C8880056989F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B525D6C8880056989F /* Extensions.swift */; };
+		62A3B1BA25D6C8FF0056989F /* HeatMapGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */; };
 		62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */; };
 		62CE0E5325D4C938008061E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE0E5225D4C938008061E5 /* ContentView.swift */; };
 		62CE0E5525D4C93C008061E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CE0E5425D4C93C008061E5 /* Assets.xcassets */; };
@@ -18,6 +23,11 @@
 /* Begin PBXFileReference section */
 		2952003174B1EFAF013D29A4 /* Pods_slab_fit_davit_ortiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_slab_fit_davit_ortiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46AFEB47FAE79CE285052D1A /* Pods-slab-fit-davit-ortiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slab-fit-davit-ortiz.debug.xcconfig"; path = "Target Support Files/Pods-slab-fit-davit-ortiz/Pods-slab-fit-davit-ortiz.debug.xcconfig"; sourceTree = "<group>"; };
+		62A3B1A525D6C2F30056989F /* ProjectsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModel.swift; sourceTree = "<group>"; };
+		62A3B1AA25D6C3AF0056989F /* TableOfValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOfValues.swift; sourceTree = "<group>"; };
+		62A3B1B025D6C50E0056989F /* HeatMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapInteractor.swift; sourceTree = "<group>"; };
+		62A3B1B525D6C8880056989F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatMapGridView.swift; sourceTree = "<group>"; };
 		62CE0E4D25D4C938008061E5 /* slab-fit-davit-ortiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "slab-fit-davit-ortiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlabfitdavitortizApp.swift; sourceTree = "<group>"; };
 		62CE0E5225D4C938008061E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,7 +56,6 @@
 				46AFEB47FAE79CE285052D1A /* Pods-slab-fit-davit-ortiz.debug.xcconfig */,
 				C3C0013173CC65EEAC906003 /* Pods-slab-fit-davit-ortiz.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -56,6 +65,39 @@
 				2952003174B1EFAF013D29A4 /* Pods_slab_fit_davit_ortiz.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62A3B1A425D6C2C90056989F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1A525D6C2F30056989F /* ProjectsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62A3B1A925D6C3710056989F /* HeatMap */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1AA25D6C3AF0056989F /* TableOfValues.swift */,
+				62A3B1B925D6C8FF0056989F /* HeatMapGridView.swift */,
+			);
+			path = HeatMap;
+			sourceTree = "<group>";
+		};
+		62A3B1AF25D6C4A80056989F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1B025D6C50E0056989F /* HeatMapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		62A3B1B425D6C8640056989F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				62A3B1B525D6C8880056989F /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		62CE0E4425D4C938008061E5 = {
@@ -79,6 +121,10 @@
 		62CE0E4F25D4C938008061E5 /* slab-fit-davit-ortiz */ = {
 			isa = PBXGroup;
 			children = (
+				62A3B1B425D6C8640056989F /* Extensions */,
+				62A3B1AF25D6C4A80056989F /* Interactor */,
+				62A3B1A925D6C3710056989F /* HeatMap */,
+				62A3B1A425D6C2C90056989F /* Model */,
 				62CE0E6425D57B9D008061E5 /* GoogleService-Info.plist */,
 				62CE0E5025D4C938008061E5 /* SlabfitdavitortizApp.swift */,
 				62CE0E5225D4C938008061E5 /* ContentView.swift */,
@@ -230,7 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				62CE0E5325D4C938008061E5 /* ContentView.swift in Sources */,
+				62A3B1BA25D6C8FF0056989F /* HeatMapGridView.swift in Sources */,
+				62A3B1B625D6C8880056989F /* Extensions.swift in Sources */,
 				62CE0E5125D4C938008061E5 /* SlabfitdavitortizApp.swift in Sources */,
+				62A3B1B125D6C50E0056989F /* HeatMapInteractor.swift in Sources */,
+				62A3B1A625D6C2F30056989F /* ProjectsModel.swift in Sources */,
+				62A3B1AB25D6C3AF0056989F /* TableOfValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

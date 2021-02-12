@@ -9,22 +9,19 @@ import SwiftUI
 /// This is the table with the explanation for each colors - values below the heatmap
 struct TableOfValues: View {
     var body: some View {
-        HStack {
-            ForEach(1..<6) { columnNumber in
-                VStack {
-                    ForEach(1..<Constants.valuesColumns) { rowNumber in
-                        HStack {
+        VStack(spacing: 0.0) {
+            ForEach(0..<11) { columnNumber in
+                HStack(spacing: 0.0)  {
                             Rectangle()
-                                .fill(Color.random())
+                                .fill(Color(String(columnNumber)))
                                 .frame(
-                                    width: 10,
-                                    height: 10,
+                                    width: 40,
+                                    height: 20,
                                     alignment: .center)
-                            Text("+\(columnNumber * rowNumber)")
+                            Text("\(columnNumber)0%")
                                 .font(.footnote)
+                                .frame(width: 70, height: 20, alignment: .center)
                         }
-                    }
-                }
             }
         }.padding(.all, 12.0).border(Color.black, width: 1)
     }
